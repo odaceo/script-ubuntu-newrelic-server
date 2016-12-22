@@ -1,16 +1,3 @@
-# Script | Ubuntu | New Relic Servers Agent
-
-[![License](https://img.shields.io/github/license/odaceo/script-ubuntu-newrelic-sysmond.svg)](LICENSE)
-
-## Description
-
-Bash script for installing [New Relic Servers Agent](https://newrelic.com/) on Ubuntu.
-
-## Provisioning Vagrant machine
-
-To provision a Vagrant machine use the following ``Vagrantfile``:
-
-``` shell
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
@@ -33,23 +20,8 @@ Vagrant.configure(2) do |config|
   config.vm.provision "shell", privileged: false, inline: <<-SHELL
     sed -i '/^export NEWRELIC_/ d' ~/.bash_profile
     echo "export NEWRELIC_LICENSE_KEY=#{ENV['NEWRELIC_LICENSE_KEY']}" | tee -a ~/.bash_profile
-  SHELL  
-  config.vm.provision "shell", privileged: false, path: "https://raw.githubusercontent.com/odaceo/script-ubuntu-newrelic-sysmond/xenial64/install.sh"
+    echo "export NEWRELIC_HOSTNAME=vagrant" | tee -a ~/.bash_profile
+    echo "export NEWRELIC_LABELS='Environment:Development'" | tee -a ~/.bash_profile
+  SHELL
+  config.vm.provision "shell", privileged: false, path: "install.sh"
 end
-```
-
-## Reporting Issues
-
-Issues can be reported at [https://github.com/odaceo/script-ubuntu-newrelic-sysmond/issues](https://github.com/odaceo/script-ubuntu-newrelic-sysmond/issues)
-
-## Source code
-
-The source code is available at [https://github.com/odaceo/script-ubuntu-newrelic-sysmond](https://github.com/odaceo/script-ubuntu-newrelic-sysmond)
-
-## License
-
-All the source code is distributed under [ASL 2.0](LICENSE).
-
-## Copyright
-
-© 2016 [Odaceo](http://odaceo.ch). All rights reserved.
