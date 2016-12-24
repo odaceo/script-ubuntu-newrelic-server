@@ -1,10 +1,10 @@
-# Script | Ubuntu | New Relic Servers Agent
+# Script | Ubuntu | New Relic System Monitor Agent
 
 [![License](https://img.shields.io/github/license/odaceo/script-ubuntu-newrelic-sysmond.svg)](LICENSE)
 
 ## Description
 
-Bash script for installing [New Relic Servers Agent](https://newrelic.com/) on Ubuntu.
+Bash script for installing [New Relic System Monitor Agent](https://newrelic.com/) on Ubuntu.
 
 ## Provisioning Vagrant machine
 
@@ -33,7 +33,7 @@ Vagrant.configure(2) do |config|
   config.vm.provision "shell", privileged: false, inline: <<-SHELL
     sed -i '/^export NEWRELIC_/ d' ~/.bash_profile
     echo "export NEWRELIC_LICENSE_KEY=#{ENV['NEWRELIC_LICENSE_KEY']}" | tee -a ~/.bash_profile
-  SHELL  
+  SHELL
   config.vm.provision "shell", privileged: false, path: "https://raw.githubusercontent.com/odaceo/script-ubuntu-newrelic-sysmond/xenial64/install.sh"
 end
 ```
