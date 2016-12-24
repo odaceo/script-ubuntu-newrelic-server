@@ -20,8 +20,8 @@ Vagrant.configure(2) do |config|
   config.vm.provision "shell", privileged: false, inline: <<-SHELL
     sed -i '/^export NEWRELIC_/ d' ~/.bash_profile
     echo "export NEWRELIC_LICENSE_KEY=#{ENV['NEWRELIC_LICENSE_KEY']}" | tee -a ~/.bash_profile
-    echo "export NEWRELIC_HOSTNAME=vagrant" | tee -a ~/.bash_profile
-    echo "export NEWRELIC_LABELS='Environment:Development'" | tee -a ~/.bash_profile
+    echo "export NEWRELIC_HOSTNAME=vagrant"                           | tee -a ~/.bash_profile
+    echo "export NEWRELIC_LABELS='Environment:Development'"           | tee -a ~/.bash_profile
   SHELL
   config.vm.provision "shell", privileged: false, path: "install.sh"
 end
