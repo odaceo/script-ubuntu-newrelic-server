@@ -31,7 +31,7 @@ Vagrant.configure(2) do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", privileged: false, 
-    path: "https://raw.githubusercontent.com/odaceo/script-ubuntu-newrelic-sysmond/xenial64/install.sh",
+    path: "https://github.com/odaceo/script-ubuntu-newrelic-sysmond/raw/master/install.sh",
     args: [ENV['NEWRELIC_LICENSE_KEY'], "vagrant", "Environment:Development"]
 end
 ```
