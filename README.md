@@ -1,4 +1,4 @@
-# Script | Ubuntu | New Relic System Monitor Agent
+# Script :: Ubuntu :: New Relic System Monitor Agent
 
 [![License](https://img.shields.io/github/license/odaceo/script-ubuntu-newrelic-sysmond.svg)](LICENSE)
 
